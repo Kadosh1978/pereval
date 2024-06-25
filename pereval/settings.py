@@ -14,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-0=(%mz@0!x9!&!f70ftr!mvi*$zy80w^dk^xg2b%fj0^&%at%v'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -75,9 +75,9 @@ WSGI_APPLICATION = 'pereval.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME' :'Pereval',
-        'USER' : 'postgres',
-        'PASSWORD' : 'admin',
+        'NAME' : os.getenv('NAME') ,
+        'USER' : os.getenv('USER'),
+        'PASSWORD' : os.getenv('PASSWORD'),
         'HOST': 'localhost'
     }
 }
